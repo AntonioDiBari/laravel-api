@@ -19,7 +19,9 @@ return [
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['*'],
+    // cors policy link npm run dev "occupato"
+
+    'allowed_origins' => ['http://localhost:5174', 'http://localhost:5173'],
 
     'allowed_origins_patterns' => [],
 
