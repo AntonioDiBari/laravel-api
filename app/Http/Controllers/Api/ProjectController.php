@@ -16,7 +16,8 @@ class ProjectController extends Controller
     public function index()
     {
         $projects = Project::select('id', 'type_id', 'name', 'author', 'description', 'image')
-            ->with(['type:id,name,color', 'technologies:id,name,color'])->orderBy('id', 'DESC')->paginate(10);
+            ->with(['type:id,name,color', 'technologies:id,name,color'])
+            ->orderBy('id', 'DESC')->paginate(10);
         return response()->json($projects);
     }
 
