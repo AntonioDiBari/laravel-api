@@ -18,6 +18,10 @@ class ProjectController extends Controller
         $projects = Project::select('id', 'type_id', 'name', 'author', 'description', 'image')
             ->with(['type:id,name,color', 'technologies:id,name,color'])
             ->orderBy('id', 'DESC')->paginate(10);
+
+        foreach ($projects as $project) {
+            $project->image = !empty($project->image) ? asset('/storage/' . $project->image) : null;
+        }
         return response()->json($projects);
     }
 
