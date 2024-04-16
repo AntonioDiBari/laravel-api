@@ -17,6 +17,7 @@ use App\Http\Controllers\Api\ProjectController;
 */
 
 Route::apiResource('projects', ProjectController::class)->only('index', 'show');
+Route::get('projects-by-type/{type_id}', [ProjectController::class, 'projectsByType']);
 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
